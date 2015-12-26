@@ -2,15 +2,12 @@ var availTabs = [1,2,3];
 
 var Tab = React.createClass({
 	render: function(){
-		return <li className="tab">{this.props.tabText}</li>;
+		return <li onClick={this.props.onClick} className="tab">{this.props.tabText}</li>;
 	}
 });
 
 /*
-	handleClick: function(tab) {
-		console.log("you clicked: " + availTabs[tab])
-		this.setState({ onTab: tab });
-	},
+
 */
 
 var TabsList = React.createClass({
@@ -19,10 +16,14 @@ var TabsList = React.createClass({
 			onTab: 1
 		};
 	},
-
-	render: function() {
-		var tabs = availTabs.map(function(item,i){
-			 return <Tab key={i} tabText={item}/>
+	handleClick: function(tab) {
+		console.log(this.props);
+		console.log(this.state);
+		this.setState({ onTab: tab });
+	},
+	render: function(){
+		var tabs = availTabs.map((item,i) => {
+			 return <Tab key={i} tabText={item} onClick={this.handleClick}/>
 			 });
 		return <ul className="horiz-list" >{	tabs	}</ul>;
 	}
