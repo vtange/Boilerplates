@@ -1,0 +1,9 @@
+[submodule "web_components/httpGet"]
+	path = web_components/httpGet
+	url = https://github.com/vtange/httpGet
+[submodule "web_components/txtUpload"]
+	path = web_components/txtUpload
+	url = https://github.com/vtange/txtUpload
+[submodule "web_components/dragDrop"]
+	path = web_components/dragDrop
+	url = https://github.com/vtange/dragDrop
