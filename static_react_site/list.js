@@ -15,7 +15,6 @@ var List2 = React.createClass({
 			return input.num == 2;
 		}
 		var renderedList = list.map(function(item, i){
-			console.log(isTwo(item))
 			return <li key={i}>{isTwo(item).toString()}</li>
 		})
 		return (
