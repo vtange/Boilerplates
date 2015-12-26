@@ -5,14 +5,11 @@ var Liquid = React.createClass({
 		};
 	},
 	setTemperature: function(e) {
-		// e.target.value is the text from our input
 		this.setState({currentTemp: e.target.value});
-		console.log(this)
-		console.log(this.state.currentTemp)
 	},
 	render: function() {
-		// empty variable that will hold either "Liquid", "Solid", or "Gas"
-		var stateOfMatter;
+
+		var stateOfMatter;		// empty variable that will hold either "Liquid", "Solid", or "Gas"
 
 		// If temp is on/below freezing, it's a solid
 		if (this.state.currentTemp <= this.props.config.freezing) {
