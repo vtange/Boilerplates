@@ -1,21 +1,31 @@
 var availTabs = [1,2,3];
-var Tabs = React.createClass({
+
+var Tab = React.createClass({
+	render: function(){
+		return <li className="tab">{this.props.tabText}</li>;
+	}
+});
+
+/*
+	handleClick: function(tab) {
+		console.log("you clicked: " + availTabs[tab])
+		this.setState({ onTab: tab });
+	},
+*/
+
+var TabsList = React.createClass({
 	getInitialState: function() {
 		return {
 			onTab: 1
 		};
 	},
 
-	selectTab: function(num) {
-		this.setState({ onTab: num });
-	},
-
 	render: function() {
 		var tabs = availTabs.map(function(item,i){
-			 return <li className="tab" key={i}>{item}</li>
+			 return <Tab key={i} tabText={item}/>
 			 });
 		return <ul className="horiz-list" >{	tabs	}</ul>;
 	}
 });
 
-ReactDOM.render(<Tabs />, document.getElementById('tabs'));
+ReactDOM.render(<TabsList />, document.getElementById('tabs'));
