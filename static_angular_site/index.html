@@ -1,0 +1,33 @@
+<head>
+    <meta charset="utf-8">
+    <title>Barebones Page</title>
+    <meta name="description" content="starter">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style-0.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="filters.js"></script>
+</head>
+<body data-ng-app="ThisApp">
+  <div class="content" data-ng-controller="MainCtrl">
+	  <h1>Variables</h1>
+	  <p>{{variable1}}</p>
+	  
+	  <h1>Listing</h1>
+	  <p data-ng-repeat="item in list">{{item}}</p>
+	  
+	  <h1>Filtering</h1>
+	  <p data-ng-repeat="item in list">{{item  | two}}</p> <!-- syntax for filtering items in array-->
+	  <p data-ng-repeat="item in newList = (list | three)">{{item}}</p> <!-- syntax for filtering an array-->
+	  
+	  <h1>Forms</h1>
+      <input class="searchr" type="text" data-ng-model="searchtxt"/><!--add a ng-submit to save input text into a list or something-->
+      <p>{{searchtxt}}</p>
+	  
+	  <h1>&nbsp;</h1>
+      <h1>Tabs, Buttons, and States</h1>
+	  <ul class="horiz-list">
+		  <li class="tab" data-ng-style="active(tab)" data-ng-repeat="tab in availTabs" data-ng-click="selectTab(tab)">{{"Tab"+tab}}</li>
+	  </ul>
+  </div>
+</body>

@@ -1,0 +1,23 @@
+{
+  "name": "votingapp",
+  "version": "1.0.0",
+  "description": "basic voting app with login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtange/votingapp.git"
+  },
+  "author": "Victor Tang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vtange/votingapp/issues"
+  },
+  "homepage": "https://github.com/vtange/votingapp#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.8"
+  }
+}

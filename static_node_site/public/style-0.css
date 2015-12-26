@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+body {
+  text-align:center;
+  background-color: #134;
+}
+.content {
+  position: relative;
+  min-height: 100vh;
+  min-width:100vw;
+  color: #ffffff;
+}
+

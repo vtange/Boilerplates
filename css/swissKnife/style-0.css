@@ -1,0 +1,81 @@
+
+body {
+    background: #bbb;
+}
+
+.logoknife {
+  position: relative;
+  background: #fff no-repeat;
+  /* background-size:83%; */
+  /* background-position: 100% 40%; */
+  height: 50vw;
+  max-height: 72vw;
+  padding-bottom: 31%;
+
+}
+
+.red-container, .blk-container, .cyan-container, .purp-container, .grn-container, .yllw-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.red {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height: 10%;
+z-index:20;
+}
+.blk {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height:  10%;
+z-index:10;
+}
+.cyan {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height:  10%;
+}
+
+.purp {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height:  10%;
+}
+
+.grn {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height:  10%;
+}
+
+.yllw {
+position: absolute;
+left: 42.75%;
+top: 42.25%;
+transform-origin: 13.5% 50% 0px;
+transform: rotateZ(-5.8deg);
+  height:  10%;
+}
+
+.cyan, .purp, .grn, .yllw {
+  transition: transform 1.9s cubic-bezier(.4,2.08,.55,.44);
+}

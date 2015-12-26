@@ -1,0 +1,78 @@
+.more-stuff {
+    position:relative;          /*align very top left */
+    top:1em;                      /*align very top left */
+    width: 100%;                
+    height:70%;
+    background-color:#eee;
+}
+
+.stuff {
+    position:absolute;          /*align very top left */
+    top:70%;                      /*align very top left */
+    width: 100%;                
+    height:70%;
+    background-color:#eee;
+}
+.toolbar {
+    position:absolute;
+    top:50%;
+    
+    z-index: 999;
+    color:pink;
+    background-color:transparent;
+}
+.toolbar h1{
+    padding:1em;
+    border:1px solid pink;
+    display:inline-block;
+}
+
+
+#bkgrd{
+    position:absolute;          /*align very top left */
+    top:0;                      /*align very top left */
+    left:0;                     /*align very top left */
+    width: 100%;                /* full screen for background cover/contain */
+    padding-top: 56.25%;        /* helps "bkgrd-size contain" stretch to full width by breaking height limit */
+    /*image*/
+    background-image: url(glass.jpg);
+    background-size: contain;  /*responsive width-wise, no js */
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.blur-bkgrd-position {
+    position:absolute;          
+    top:50%;                                                   /*sets up cut off point*/
+    left:0;                     /*align very left */
+    width: 100%;                /* full screen for background cover/contain */
+    padding-top: 56.25%;        /* helps "bkgrd-size contain" stretch to full width by breaking height limit */
+}
+.glass {
+    /*blurred image*/
+    background: 
+        /* dark blue */ 
+        linear-gradient(
+          rgba(0, 0, 30, 0.45), 
+          rgba(0, 0, 30, 0.45)
+        ),
+        url(glass.jpg);
+    background-size: contain;   /*responsive width-wise, no js */
+    background-repeat: no-repeat;
+    background-position: center bottom.
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+.cropper {
+   overflow: hidden;           /* performs the cropping */
+}
+/* apply to both .cropper and .glass */  /* enables crop from the top */
+.flip {
+  -webkit-transform: rotate(180deg);
+  -moz-transform:    rotate(180deg);
+  -ms-transform:     rotate(180deg);
+  -o-transform:      rotate(180deg);
+  transform:         rotate(180deg);
+}
