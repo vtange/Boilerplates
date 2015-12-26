@@ -23,7 +23,7 @@ app.factory('memory', function($http){
   return storage;
 });//end of service
 
-app.controller('MainCtrl', ['$scope', 'memory', function($scope, memory){
+app.controller('MainCtrl', ['$scope', '$timeout', '$interval', 'memory', function($scope, $timeout, $interval, memory){
     $scope.storage = memory; // load service
 	//Variables
 	$scope.variable1 = "This is Variable1"
@@ -45,13 +45,17 @@ app.controller('MainCtrl', ['$scope', 'memory', function($scope, memory){
 		};
 	}
 	//Timeout and Intervals
+	$scope.variable2 = 100;
+	$timeout(function(){
+		$interval(function(){$scope.variable2 += 10;},1000)
+	},1000)
 	
-	
-	//Interact with other Libraries $sce, $digest, $apply
-	
-	
-	
-	
+	//Interact with other Libraries $sce, $digest, apply  -> check formatter app
+	$scope.longerList = function(){
+		//list auto updates due to Angular making the changes
+		//$scope.list = [{num:5},{num:5},{num:5},{num:5},{num:5}];
+		$scope.list.push({num:($scope.list.length+1)})
+	}
 }]);//end of controller
   //end of function
 })();

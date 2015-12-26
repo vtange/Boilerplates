@@ -68,3 +68,8 @@ ul{
 	margin: 5px;
 	cursor: pointer;
 }
+.chunk{
+	vertical-align: text-top;
+	display: inline-block;
+	width:50%;
+}
