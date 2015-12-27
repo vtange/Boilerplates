@@ -60,6 +60,8 @@ ul{
 	padding: 0;
 }
 /* RESET */
+/* CUSTOM BELOW*/
+
 .tab{
 	background: #fff;
 	padding:10px;
@@ -73,3 +75,7 @@ ul{
 	display: inline-block;
 	width:50%;
 }
+.active{
+	background: #ccc;
+}
+
