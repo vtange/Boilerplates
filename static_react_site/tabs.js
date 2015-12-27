@@ -9,20 +9,14 @@ var Tab = React.createClass({
 	}
 });
 
-/*
-
-*/
-
 var TabsList = React.createClass({
 	getInitialState: function() {
 		return {
-			onTab: null
+			onTab: 1
 		};
 	},
 	handleClick: function(e) {
-		this.setState({ onTab: parseInt(e.target.innerHTML,10) },function () {
-    	console.log(this.state.onTab);
-});
+		this.setState({ onTab: parseInt(e.target.innerHTML,10) },function () {/*setState is not instant, do something here like you would an async function*/});
 	},
 	render: function(){
 		var tabs = availTabs.map((item,i) => {
