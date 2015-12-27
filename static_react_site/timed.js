@@ -12,8 +12,8 @@ var Timer = React.createClass({
 
         // componentDidMount is called by react when the component 
         // has been rendered on the page. We can set the interval here:
-
-        this.timer = setInterval(this.tick, 50);
+		
+        this.timer = setTimeout(()=>{setInterval(this.tick, 50)},700);
     },
 
     componentWillUnmount: function(){
