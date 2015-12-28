@@ -18,7 +18,7 @@ gulp.task('scripts', function() {
 // Watch Task
 gulp.task('watch', function(){
 	//Watch the JS folder
-	gulp.watch('js/*js', ['scripts','browserify']);
+	gulp.watch('js/*js', ['scripts']);
 })
 
 gulp.task('browserify', function() {
@@ -37,13 +37,13 @@ gulp.task('browserify', function() {
         watcher.bundle() // Create new bundle that uses the cache for high performance
         .pipe(source('main.js'))
     // This is where you add uglifying etc.
-        .pipe(gulp.dest('build/js'));
+        .pipe(gulp.dest('final/js'));
         console.log('Updated!', (Date.now() - updateStart) + 'ms');
     })
     .bundle() // Create the initial bundle when starting the task
     .pipe(source('main.js'))
 // This is where you add uglifying etc.
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('final/js'));
 });
 
 
