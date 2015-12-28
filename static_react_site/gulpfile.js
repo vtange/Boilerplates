@@ -12,5 +12,11 @@ gulp.task('scripts', function() {
       .pipe(gulp.dest('build/js'));
 });
 
+// Watch Task
+gulp.task('watch', function(){
+	//Watch the JS folder
+	gulp.watch('js/*js', ['scripts']);
+})
+
 // Default Task
-gulp.task('default', ['scripts']);
+gulp.task('default', ['scripts','watch']);

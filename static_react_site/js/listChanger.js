@@ -1,6 +1,7 @@
 var ListAdd = React.createClass({
 	onClick: function(){
-		list.push({num:(list.length+1)})
+		list.push({num:(list.length+1)});
+		console.log(list);
 	},
 	render: function() {
 		return (
