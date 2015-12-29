@@ -2,7 +2,19 @@ var alt = require('../alt');
 
 class LocationActions {
   updateLocations(locations) {
-    return locations;
+    this.dispatch(locations);
+  }
+
+  fetchLocations() {
+    this.dispatch();
+  }
+
+  locationsFailed(errorMessage) {
+    this.dispatch(errorMessage);
+  }
+
+  favoriteLocation(location) {
+    this.dispatch(location);
   }
 }
 
