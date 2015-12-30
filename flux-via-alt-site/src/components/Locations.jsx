@@ -4,6 +4,8 @@ var LocationStore = require('../stores/LocationStore');
 var FavoritesStore = require('../stores/FavoritesStore');
 var LocationActions = require('../actions/LocationActions');
 
+//return a <li> in <ul> for every elment in this.props.locations
+//this.props.locations here === this.locations in FavoritesStore
 var Favorites = React.createClass({
   render() {
     return (
@@ -18,11 +20,15 @@ var Favorites = React.createClass({
   }
 });
 
+//return a <li> in <ul> for every elment in this.props.locations
+//this.props.locations here === this.locations in LocationStore
 var AllLocations = React.createClass({
   addFave(ev) {
+	  //get which element got fav'ed
     var location = LocationStore.getLocation(
       Number(ev.target.getAttribute('data-id'))
     );
+	  //use LocationActions' favoriteLocation method
     LocationActions.favoriteLocation(location);
   },
 
@@ -44,12 +50,13 @@ var AllLocations = React.createClass({
     return (
       <ul>
         {this.props.locations.map((location, i) => {
+		 //faveButton for the unFaved
           var faveButton = (
             <button onClick={this.addFave} data-id={location.id}>
               Favorite
             </button>
           );
-
+	  	  // return <3 or faveButton per location
           return (
             <li key={i}>
               {location.name} {location.has_favorite ? '<3' : faveButton}
@@ -70,12 +77,12 @@ var Locations = React.createClass({
     return (
       <div>
         <h1>Locations</h1>
-        <AltContainer store={LocationStore}>
+        <AltContainer store={LocationStore}>	//connect to full list
           <AllLocations />
         </AltContainer>
 
         <h1>Favorites</h1>
-        <AltContainer store={FavoritesStore}>
+        <AltContainer store={FavoritesStore}>	//connect to favorite list
           <Favorites />
         </AltContainer>
       </div>

@@ -5,14 +5,16 @@ var FavoritesStore = require('./FavoritesStore');
 
 class LocationStore {
   constructor() {
+	  //this is list of data (cities in this case)
     this.locations = [];
+	  //store error message -> show if truthy
     this.errorMessage = null;
-
+	  //bindListeners <---> dispatch in LocationActions
     this.bindListeners({
-      handleUpdateLocations: LocationActions.UPDATE_LOCATIONS,
-      handleFetchLocations: LocationActions.FETCH_LOCATIONS,
-      handleLocationsFailed: LocationActions.LOCATIONS_FAILED,
-      setFavorites: LocationActions.FAVORITE_LOCATION
+      handleUpdateLocations: LocationActions.UPDATE_LOCATIONS,		//1
+      handleFetchLocations: LocationActions.FETCH_LOCATIONS,		//2
+      handleLocationsFailed: LocationActions.LOCATIONS_FAILED,		//3
+      setFavorites: LocationActions.FAVORITE_LOCATION				//4
     });
 
     this.exportPublicMethods({
@@ -21,16 +23,22 @@ class LocationStore {
 
     this.exportAsync(LocationSource);
   }
-
+/*---*/
+/* 1 */
+/*---*/
   handleUpdateLocations(locations) {
     this.locations = locations;
     this.errorMessage = null;
   }
-
+/*---*/
+/* 2 */
+/*---*/
   handleFetchLocations() {
     this.locations = [];
   }
-
+/*---*/
+/* 3 */
+/*---*/
   handleLocationsFailed(errorMessage) {
     this.errorMessage = errorMessage;
   }
@@ -44,7 +52,9 @@ class LocationStore {
       };
     });
   }
-
+/*---*/
+/* 4 */
+/*---*/
   setFavorites(location) {
     this.waitFor(FavoritesStore);
 
@@ -77,4 +87,4 @@ class LocationStore {
   }
 }
 
-module.exports = alt.createStore(LocationStore, 'LocationStore');
+module.exports = alt.createStore(LocationStore, 'LocationStore');	//createStore takes in an Object, creates a 'singleton store'
