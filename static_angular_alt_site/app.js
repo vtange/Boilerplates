@@ -1,22 +1,5 @@
-(function() {
-    //start of function
-  var app = angular.module('ThisApp', []);
+var m = angular.module('cart', []);
 
-//actions layer
-var ADD_ITEM = "ADD_ITEM";
-
-app.factory("cartActions", function (dispatcher) {
-  return {
-    addItem(item) {
-      dispatcher.emit({
-        actionType: ADD_ITEM,
-        item: item
-      })
-    }
-  };
-});//end actions layer
-	
-//dispatcher layer
 class EventEmitter {
   constructor() {
     this.listeners = [];
@@ -32,11 +15,42 @@ class EventEmitter {
     this.listeners.push(listener);
     return this.listeners.length - 1;
   }
-}// end define EventEmitter class
+}
 
-app.service("dispatcher", EventEmitter);
-//end dispatcher layer
-//store layer
+
+
+//-------------ACTIONS-------------
+
+var ADD_ITEM = "ADD_ITEM";
+var REMOVE_ITEM = "REMOVE_ITEM";
+
+m.factory("cartActions", function (dispatcher) {
+  return {
+    addItem(item) {
+      dispatcher.emit({
+        actionType: ADD_ITEM,
+        item: item
+      })
+    },
+
+    removeItem(item) {
+      dispatcher.emit({
+        actionType: REMOVE_ITEM,
+        item: item
+      })
+    }
+  };
+});
+
+
+
+//-------------DISPATCHER-------------
+m.service("dispatcher", EventEmitter);
+
+
+
+//-------------STORE-------------
+
 class CartStore extends EventEmitter {
   constructor() {
     super();
@@ -60,7 +74,7 @@ class CartStore extends EventEmitter {
   emitChange() {
     this.emit("change");
   }
-}// end define CartStore class
+}
 
 m.factory("cartStore", function (dispatcher) {
   var cartStore = new CartStore();
@@ -69,32 +83,31 @@ m.factory("cartStore", function (dispatcher) {
     switch(action.actionType){
       case ADD_ITEM:
         cartStore.addItem(action.item);
-        cartStore.emitChange();
         break;
 
       case REMOVE_ITEM:
         cartStore.removeItem(action.item);
-        cartStore.emitChange();
         break;
     }
-
+    cartStore.emitChange();
   });
 
-  //expose only the public interface
   return {
     addListener: (l) => cartStore.addListener(l),
     cartItems: () => cartStore.cartItems
   };
-});//end store layer
-	
-//hardcoded data
-app.value("catalogItems", [
-  {id: 1, title: 'Item #1', cost: 1},
-  {id: 2, title: 'Item #2', cost: 2},
-  {id: 3, title: 'Item #3', cost: 3}
+});
+
+m.value("catalogItems", [
+  {id: 1, title: 'Widget #1', cost: 1},
+  {id: 2, title: 'Widget #2', cost: 2},
+  {id: 3, title: 'Widget #3', cost: 3}
 ]);
 
-//define CatalogCtrl class
+
+
+//-------------VIEW-------------
+
 class CatalogCtrl {
   constructor(catalogItems, cartActions) {
     this.cartActions = cartActions;
@@ -104,8 +117,10 @@ class CatalogCtrl {
   addToCart(catalogItem) {
     this.cartActions.addItem(catalogItem);
   }
-}//end of define CatalogCtrl class
-//end of define CartCtrl class
+}
+m.controller("CatalogCtrl", CatalogCtrl);
+
+
 class CartCtrl {
   constructor(cartStore, cartActions) {
     this.cartStore = cartStore;;
@@ -120,13 +135,7 @@ class CartCtrl {
   }
 
   removeItem(item) {
-    //to be implemented
+    this.cartActions.removeItem(item);
   }
-}//end of define CatalogCtrl class
-	
-app.controller("CartCtrl", CartCtrl);		//create one controller of CartCtrl class
-	
-app.controller("CatalogCtrl", CatalogCtrl);	//create one controller of CatalogCtrl class
-
-  //end of function
-})();
+}
+m.controller("CartCtrl", CartCtrl);
