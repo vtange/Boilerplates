@@ -8,6 +8,12 @@ var concat = require('gulp-concat');
 
 //Lots of JS + scripts task == build/js/main.js, + browserify task == build/js/main.js with dependencies put in
 
+// Watch Task
+gulp.task('watch', function(){
+	//Watch the JS folder
+	gulp.watch('js/*js', ['scripts']);
+})
+
 // Concatenate JS Files
 gulp.task('scripts', function() {
     return gulp.src('js/*.js')
@@ -15,15 +21,10 @@ gulp.task('scripts', function() {
       .pipe(gulp.dest('build/js'));
 });
 
-// Watch Task
-gulp.task('watch', function(){
-	//Watch the JS folder
-	gulp.watch('js/*js', ['scripts']);
-})
-
+// enable require() within JS Files
 gulp.task('browserify', function() {
     var bundler = browserify({
-        entries: ['build/js/main.js'], // Only need initial file, browserify finds the deps
+        entries: ['build/main.js'], // Only need initial file, browserify finds the deps
         transform: [babelify], // We want to convert JSX to normal javascript
         debug: true, // Gives us sourcemapping
         cache: {}, packageCache: {}, fullPaths: true // Requirement of watchify
