@@ -21,7 +21,10 @@ body {
 }
 .grid-element {
 	display: inline-block;
-	border:1px solid #879;
+	background-image: url(square.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*border:1px solid #879;*/
 }
 .glow-element {
 	margin:-1px -1px;
