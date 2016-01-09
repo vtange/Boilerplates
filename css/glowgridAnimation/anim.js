@@ -30,7 +30,7 @@
 		var g = Math.floor(Math.random()*(255-150)+150);
 		var b = Math.floor(Math.random()*(255-150)+150);
 		var glowSize = Math.floor(Math.random()*5)*cellSize+cellSize;
-		var brush = $('<div id="glow'+y+'-'+x+'" class="glow-element" style="height:'+glowSize+'px;width:'+glowSize+'px;background-color:rgba('+r+','+g+','+b+',0.6)"></div>');
+		var brush = $('<div id="glow'+y+'-'+x+'" class="glow-element" style="height:'+glowSize+'px;width:'+glowSize+'px;background-color:rgba('+r+','+g+','+b+',0.8);box-shadow:0px 0px 10px rgba('+r+','+g+','+b+',0.8)"></div>');
 		$('#cell'+y+'-'+x).append(brush);
 		$('#glow'+y+'-'+x).velocity({ opacity: 1.0 }, [ 0.17, 0.67, 0.83, 0.67 ]);
 		//remove class after set amt of time
