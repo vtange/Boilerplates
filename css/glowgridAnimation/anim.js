@@ -2,11 +2,12 @@
     //start of function
 	var numCols;
 	var numRows;
+	var cellSize = 50;
 	function generateGrid(){
 		$('#grid').html("");
 		var whole = $('<div id="whole"></div>')
 		var row = $('<div class="cell-row"></div>')
-		var cellSize = 50;
+		cellSize = window.innerWidth / 30;
 		numCols = window.innerWidth % cellSize === 0? window.innerWidth / cellSize : Math.ceil(window.innerWidth / cellSize) ;
 		numRows = window.innerHeight % cellSize === 0? window.innerHeight / cellSize : Math.ceil(window.innerHeight / cellSize) ;
 		for (var i = 0; i < numRows; i++){
@@ -28,8 +29,8 @@
 		var r = Math.floor(Math.random()*(255-150)+150);
 		var g = Math.floor(Math.random()*(255-150)+150);
 		var b = Math.floor(Math.random()*(255-150)+150);
-		var size = Math.floor(Math.random()*5)*50+50;
-		var brush = $('<div id="glow'+y+'-'+x+'" class="glow-element" style="height:'+size+'px;width:'+size+'px;background-color:rgba('+r+','+g+','+b+',0.6)"></div>');
+		var glowSize = Math.floor(Math.random()*5)*cellSize+cellSize;
+		var brush = $('<div id="glow'+y+'-'+x+'" class="glow-element" style="height:'+glowSize+'px;width:'+glowSize+'px;background-color:rgba('+r+','+g+','+b+',0.6)"></div>');
 		$('#cell'+y+'-'+x).append(brush);
 		$('#glow'+y+'-'+x).velocity({ opacity: 1.0 }, [ 0.17, 0.67, 0.83, 0.67 ]);
 		//remove class after set amt of time
