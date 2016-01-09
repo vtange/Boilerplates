@@ -25,3 +25,7 @@ body {
 	display: inline-block;
 	border:1px solid white;
 }
+.glow-element {
+	margin:-1px -1px;
+	position: absolute;
+}

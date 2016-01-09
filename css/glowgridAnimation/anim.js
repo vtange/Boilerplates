@@ -12,7 +12,7 @@
 		for (var i = 0; i < numRows; i++){
 			row = $('<div class="cell-row"></div>')
 			for (var j = 0; j < numCols; j++){
-				var cell = $('<div id="row'+i+'num'+j+'" class="grid-element" style="height:'+cellSize+'px;width:'+cellSize+'px;"></div>');
+				var cell = $('<div id="cell'+i+'-'+j+'" class="grid-element" style="height:'+cellSize+'px;width:'+cellSize+'px;"></div>');
 				row.append(cell);
 			}
 			whole.append(row);
@@ -29,65 +29,17 @@
 		var r = Math.floor(Math.random()*(255-150)+150);
 		var g = Math.floor(Math.random()*(255-150)+150);
 		var b = Math.floor(Math.random()*(255-150)+150);
-		var size = Math.floor(Math.random()*(5)+1);
-		var brush = [];
-		function generateBrush(){
-			for(var brushX = 0; brushX < size; brushX++){
-				for(var brushY = 0; brushY < size; brushY++){
-					brush.push('row'+(y+brushY)+'num'+(x+brushX));
-				}
-			}
-		}
-		generateBrush();
-		brush.forEach(function(item){
-			if(document.getElementById(item)!==null){
-				document.getElementById(item).style.backgroundColor='rgba('+r+','+g+','+b+',0.6)';
-			}
-		})
+		var size = Math.floor(Math.random()*5)*50+50;
+		var brush = $('<div id="glow'+y+'-'+x+'" class="glow-element" style="height:'+size+'px;width:'+size+'px;background-color:#7bb"></div>');
+		console.log(brush);
+		$('#cell'+y+'-'+x).append(brush);
 		//remove class after set amt of time
 		function unglow(){
-			brush.forEach(function(item){
-				if(document.getElementById(item)!==null){
-					document.getElementById(item).style.backgroundColor='';
-				}
-			})
-		}
-		setTimeout(unglow,1000);
-	}
-	function glow2(){
-		var x = Math.floor(Math.random()*numCols);
-		var y = Math.floor(Math.random()*numRows);
-
-		var r = Math.floor(Math.random()*(255-150)+150);
-		var g = Math.floor(Math.random()*(255-150)+150);
-		var b = Math.floor(Math.random()*(255-150)+150);
-		var size = Math.floor(Math.random()*(5)+1);
-		var brush = [];
-		function generateBrush(){
-			for(var brushX = 0; brushX < size; brushX++){
-				for(var brushY = 0; brushY < size; brushY++){
-					brush.push('row'+(y+brushY)+'num'+(x+brushX));
-				}
-			}
-		}
-		generateBrush();
-		brush.forEach(function(item){
-			if(document.getElementById(item)!==null){
-				document.getElementById(item).style.boxShadow='0px 100px rgba('+r+','+g+','+b+',0.6)';
-			}
-		})
-		//remove class after set amt of time
-		function unglow(){
-			brush.forEach(function(item){
-				if(document.getElementById(item)!==null){
-					document.getElementById(item).style.boxShadow='';
-				}
-			})
+			$('#glow'+y+'-'+x).remove();
 		}
 		setTimeout(unglow,2000);
 	}
-	setInterval(glow2,4400);
-	setInterval(glow,2100);
+	setInterval(glow,1800);
 	
 	
   //end of function
