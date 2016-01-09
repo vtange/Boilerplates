@@ -19,7 +19,6 @@ body {
 }
 .cell-row{
 	white-space: nowrap;
-	height:50px;
 }
 .grid-element {
 	display: inline-block;

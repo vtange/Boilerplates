@@ -10,7 +10,7 @@
 		numCols = window.innerWidth % cellSize === 0? window.innerWidth / cellSize : Math.ceil(window.innerWidth / cellSize) ;
 		numRows = window.innerHeight % cellSize === 0? window.innerHeight / cellSize : Math.ceil(window.innerHeight / cellSize) ;
 		for (var i = 0; i < numRows; i++){
-			row = $('<div class="cell-row"></div>')
+			row = $('<div class="cell-row" style="height:'+cellSize+'px;"></div>')
 			for (var j = 0; j < numCols; j++){
 				var cell = $('<div id="cell'+i+'-'+j+'" class="grid-element" style="height:'+cellSize+'px;width:'+cellSize+'px;"></div>');
 				row.append(cell);
