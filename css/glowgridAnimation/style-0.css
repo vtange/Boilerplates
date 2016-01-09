@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color:rgb(40,35,52);
+	margin:0;
+	overflow: hidden;
+}
+#grid{
+	position:relative;		/* req'd for horiz center */
+	right:50%;				/* req'd for horiz center */
+	text-align:center;		/* req'd for horiz center */
+}
+#whole{
+	display:inline-block;	/* req'd for horiz center */
+	margin-right:-100%;		/* req'd for horiz center */
+	margin-top:-0.5%;
+}
+.cell-row{
+	white-space: nowrap;
+	height:50px;
+}
+.grid-element {
+	display: inline-block;
+	border:1px solid white;
+}
