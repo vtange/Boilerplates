@@ -7,7 +7,7 @@ body {
 	overflow: hidden;
 }
 #grid{
-	position:relative;		/* req'd for horiz center */
+	position:absolute;		/* req'd for horiz center */
 	right:50%;				/* req'd for horiz center */
 	text-align:center;		/* req'd for horiz center */
 }
