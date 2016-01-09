@@ -21,10 +21,26 @@ body {
 }
 .grid-element {
 	display: inline-block;
-	background-image: url(square.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	/*border:1px solid #879;*/
+}
+@media screen and (max-width: 2048px) {
+	.grid-element {
+		border: 1px solid #657;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.grid-element {
+		border: 1px solid #546;
+	}
+}
+@media screen and (max-width: 768px) {
+	.grid-element {
+		border: 1px solid #435;
+	}
+}
+@media screen and (max-width: 512px) {
+	.grid-element {
+		border: 1px solid #3e2e5e;
+	}
 }
 .glow-element {
 	margin:-1px -1px;
