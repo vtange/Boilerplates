@@ -21,7 +21,7 @@
 	};
 	generateGrid();
 	$(window).resize(generateGrid);
-	var glowed = [];
+	//glow phase
 	function glow(){
 		var x = Math.floor(Math.random()*numCols);
 		var y = Math.floor(Math.random()*numRows);
@@ -29,7 +29,7 @@
 		var r = Math.floor(Math.random()*(255-150)+150);
 		var g = Math.floor(Math.random()*(255-150)+150);
 		var b = Math.floor(Math.random()*(255-150)+150);
-		var size = Math.floor(Math.random()*(3)+1);
+		var size = Math.floor(Math.random()*(5)+1);
 		var brush = [];
 		function generateBrush(){
 			for(var brushX = 0; brushX < size; brushX++){
@@ -41,8 +41,7 @@
 		generateBrush();
 		brush.forEach(function(item){
 			if(document.getElementById(item)!==null){
-				document.getElementById(item).style.backgroundColor='rgb('+r+','+g+','+b+')';
-				glowed.push(item);
+				document.getElementById(item).style.backgroundColor='rgba('+r+','+g+','+b+',0.6)';
 			}
 		})
 		//remove class after set amt of time
@@ -50,13 +49,45 @@
 			brush.forEach(function(item){
 				if(document.getElementById(item)!==null){
 					document.getElementById(item).style.backgroundColor='';
-					glowed.push(item);
 				}
 			})
 		}
 		setTimeout(unglow,1000);
 	}
-	setInterval(glow,1750);
+	function glow2(){
+		var x = Math.floor(Math.random()*numCols);
+		var y = Math.floor(Math.random()*numRows);
+
+		var r = Math.floor(Math.random()*(255-150)+150);
+		var g = Math.floor(Math.random()*(255-150)+150);
+		var b = Math.floor(Math.random()*(255-150)+150);
+		var size = Math.floor(Math.random()*(5)+1);
+		var brush = [];
+		function generateBrush(){
+			for(var brushX = 0; brushX < size; brushX++){
+				for(var brushY = 0; brushY < size; brushY++){
+					brush.push('row'+(y+brushY)+'num'+(x+brushX));
+				}
+			}
+		}
+		generateBrush();
+		brush.forEach(function(item){
+			if(document.getElementById(item)!==null){
+				document.getElementById(item).style.boxShadow='0px 100px rgba('+r+','+g+','+b+',0.6)';
+			}
+		})
+		//remove class after set amt of time
+		function unglow(){
+			brush.forEach(function(item){
+				if(document.getElementById(item)!==null){
+					document.getElementById(item).style.boxShadow='';
+				}
+			})
+		}
+		setTimeout(unglow,2000);
+	}
+	setInterval(glow2,4400);
+	setInterval(glow,2100);
 	
 	
   //end of function
