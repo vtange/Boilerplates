@@ -28,4 +28,5 @@ body {
 .glow-element {
 	margin:-1px -1px;
 	position: absolute;
+  	opacity: 0;
 }
