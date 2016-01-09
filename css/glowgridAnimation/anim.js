@@ -21,6 +21,7 @@
 	};
 	generateGrid();
 	$(window).resize(generateGrid);
+	var glowed = [];
 	function glow(){
 		var x = Math.floor(Math.random()*numCols);
 		var y = Math.floor(Math.random()*numRows);
@@ -29,109 +30,33 @@
 		var g = Math.floor(Math.random()*(255-150)+150);
 		var b = Math.floor(Math.random()*(255-150)+150);
 		var size = Math.floor(Math.random()*(3)+1);
-		if(size===1){
-			if(document.getElementById('row'+y+'num'+x)!==null){
-				document.getElementById('row'+y+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
+		var brush = [];
+		function generateBrush(){
+			for(var brushX = 0; brushX < size; brushX++){
+				for(var brushY = 0; brushY < size; brushY++){
+					brush.push('row'+(y+brushY)+'num'+(x+brushX));
+				}
 			}
 		}
-		else if(size===2){
-			if(document.getElementById('row'+y+'num'+x)!==null){
-				document.getElementById('row'+y+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
+		generateBrush();
+		brush.forEach(function(item){
+			if(document.getElementById(item)!==null){
+				document.getElementById(item).style.backgroundColor='rgb('+r+','+g+','+b+')';
+				glowed.push(item);
 			}
-			if(document.getElementById('row'+y+'num'+(x+1))!==null){
-				document.getElementById('row'+y+'num'+(x+1)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+1)+'num'+(x+1))!==null){
-				document.getElementById('row'+(y+1)+'num'+(x+1)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+1)+'num'+x)!==null){
-				document.getElementById('row'+(y+1)+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-		}
-		else{//size===3
-			if(document.getElementById('row'+y+'num'+x)!==null){
-				document.getElementById('row'+y+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+y+'num'+(x+1))!==null){
-				document.getElementById('row'+y+'num'+(x+1)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+1)+'num'+(x+1))!==null){
-				document.getElementById('row'+(y+1)+'num'+(x+1)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+1)+'num'+x)!==null){
-				document.getElementById('row'+(y+1)+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+1)+'num'+(x+2))!==null){
-				document.getElementById('row'+(y+1)+'num'+(x+2)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+y+'num'+(x+2))!==null){
-				document.getElementById('row'+y+'num'+(x+2)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+2)+'num'+(x+2))!==null){
-				document.getElementById('row'+(y+2)+'num'+(x+2)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+2)+'num'+x)!==null){
-				document.getElementById('row'+(y+2)+'num'+x).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-			if(document.getElementById('row'+(y+2)+'num'+(x+1))!==null){
-				document.getElementById('row'+(y+2)+'num'+(x+1)).style.backgroundColor='rgb('+r+','+g+','+b+')';
-			}
-		}
+		})
 		//remove class after set amt of time
 		function unglow(){
-			if(size===1){
-				if(document.getElementById('row'+y+'num'+x)!==null){
-					document.getElementById('row'+y+'num'+x).style.backgroundColor='';
+			brush.forEach(function(item){
+				if(document.getElementById(item)!==null){
+					document.getElementById(item).style.backgroundColor='';
+					glowed.push(item);
 				}
-			}
-			else if(size===2){
-				if(document.getElementById('row'+y+'num'+x)!==null){
-					document.getElementById('row'+y+'num'+x).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+y+'num'+(x+1))!==null){
-					document.getElementById('row'+y+'num'+(x+1)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+1)+'num'+(x+1))!==null){
-					document.getElementById('row'+(y+1)+'num'+(x+1)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+1)+'num'+x)!==null){
-					document.getElementById('row'+(y+1)+'num'+x).style.backgroundColor='';
-				}
-			}
-			else{//size===3
-				if(document.getElementById('row'+y+'num'+x)!==null){
-					document.getElementById('row'+y+'num'+x).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+y+'num'+(x+1))!==null){
-					document.getElementById('row'+y+'num'+(x+1)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+1)+'num'+(x+1))!==null){
-					document.getElementById('row'+(y+1)+'num'+(x+1)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+1)+'num'+x)!==null){
-					document.getElementById('row'+(y+1)+'num'+x).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+1)+'num'+(x+2))!==null){
-					document.getElementById('row'+(y+1)+'num'+(x+2)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+y+'num'+(x+2))!==null){
-					document.getElementById('row'+y+'num'+(x+2)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+2)+'num'+(x+2))!==null){
-					document.getElementById('row'+(y+2)+'num'+(x+2)).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+2)+'num'+x)!==null){
-					document.getElementById('row'+(y+2)+'num'+x).style.backgroundColor='';
-				}
-				if(document.getElementById('row'+(y+2)+'num'+(x+1))!==null){
-					document.getElementById('row'+(y+2)+'num'+(x+1)).style.backgroundColor='';
-				}
-			}
+			})
 		}
 		setTimeout(unglow,1000);
 	}
-	setInterval(glow,750);
-	setInterval(glow,1250);
+	setInterval(glow,1750);
 	
 	
   //end of function
