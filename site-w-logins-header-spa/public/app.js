@@ -1,6 +1,6 @@
 (function() {
     //start of function
-  var app = angular.module('NightLifeMap', ['header']);
+  var app = angular.module('AppName', ['header']);
 
 	
   //end of function
