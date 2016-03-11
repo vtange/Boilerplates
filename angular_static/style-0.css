@@ -5,35 +5,6 @@ body {
   margin: 0;/*reset page*/
   background-color: #9bd;
 }
-.width-container{
-	width:80vw;
-	margin-left: auto;
-	margin-right: auto;
-}
-.left-side{
-    float:left;
-	text-align: left;
-}
-.right-side{
-	float:right;
-	text-align: left;
-}
-.horiz-list{
-	display: inline-block;
-}
-.horiz-list li{
-	display: inline-block;
-}
-
-.centered{
-	display: block;
-	margin: 0 auto;
-}
-.vert-centered{
-	position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
 .dbl-centered{
   position: absolute;
   top: 50%;
@@ -41,26 +12,5 @@ body {
   transform: translate(-50%, -50%);
 }
 /* BASICS ^ */
-h1{
-  margin: 0;
-}
-ul{
-  margin: 0;
-	padding: 0;
-}
 /* RESET */
 /* CUSTOM BELOW*/
-
-.tab{
-	background: #fff;
-	padding:10px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	margin: 5px;
-	cursor: pointer;
-}
-.chunk{
-	vertical-align: text-top;
-	display: inline-block;
-	width:50%;
-}
