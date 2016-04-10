@@ -1,0 +1,36 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Bookmon</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="index.css"> <!-- load styles -->
+	<script src="app.js"></script> <!-- load app -->
+</head>
+<body>
+<%- include ../node_modules/really-basic-login-bar/views/partials/header.ejs %>
+<div class="container">
+    <% if (!user) { %>
+
+		<div id="intro" class="vert-centered">
+			<h1>Bookmon</h1>
+			<p>								<a href="/login" class="btn btn-default">Login</a> or 
+								<a href="/signup" class="btn btn-default">Signup</a> to play!</p>
+		</div>
+	
+    <% } else {%>
+	
+	<div>
+	
+	
+	
+	
+	</div>
+	
+	
+	
+	<% } %>
+</div>
+</body>
+</html>
