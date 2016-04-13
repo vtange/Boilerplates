@@ -13,7 +13,7 @@ app.controller('LoginCtrl', ['$scope', '$http', '$window', 'memory', function($s
 		$scope.showLogin = !!($scope.showLogin)?false:true;
 	}
     $scope.login = function(){
-		$http.post(getRootUrl()+"login",$scope.info).success(function(data){
+		$http.post(getRootUrl()+"users/login",$scope.info).success(function(data){
 			//check if data has a user or not
 			if(data.id){
 				$scope.service1.user = data;
