@@ -1,6 +1,6 @@
 (function() {
     //start of function
-  var app = angular.module('AppName', ['header']);
+  var app = angular.module('ANGULAR_APP_NAME', ['header']);
 
 	
   //end of function
