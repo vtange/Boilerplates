@@ -1,4 +1,3 @@
-console.log("	APP/ROUTES.JS")
 
 // app/routes.js
 module.exports = function(app) {
