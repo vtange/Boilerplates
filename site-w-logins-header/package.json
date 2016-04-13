@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "basic-login-bar": "^1.1.2",
+    "basic-login-bar": "^1.1.4",
     "bcrypt-nodejs": "latest",
 	"body-parser": "~1.0.0",
     "connect-flash": "^0.1.1",
