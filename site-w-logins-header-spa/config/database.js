@@ -1,4 +1,3 @@
-console.log("	CONFIG/DATABASE.JS")
 // config/database.js
 module.exports = {
 
