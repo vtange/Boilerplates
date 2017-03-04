@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;/*reset page*/
+}
+body {
+  margin: 0;/*reset page*/
+  background-color: #9bd;
+}
+.dbl-centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* BASICS ^ */
+/* RESET */
+/* CUSTOM BELOW*/
